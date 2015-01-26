@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<include layout="@layout/toolbar"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ecf0f1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Name: "
+            android:id="@+id/tvName"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="90dp"
+            android:minWidth="200dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tfName"
+            android:layout_gravity="center_horizontal"
+            android:text="Knx-Project"
+            android:layout_marginBottom="30dp"
+            android:minWidth="150dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Gateway-IP:"
+            android:id="@+id/tvGateway"
+            android:layout_gravity="center_horizontal"
+            android:minWidth="200dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tfIP"
+            android:text="192.168.10.28"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:minWidth="150dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Port:   "
+            android:id="@+id/tvPort"
+            android:layout_gravity="center_horizontal"
+            android:minWidth="200dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tfPort"
+            android:text="3671"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:minWidth="150dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verbinden"
+            android:id="@+id/bVerbinden"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+</LinearLayout>

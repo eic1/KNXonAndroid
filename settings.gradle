@@ -1,0 +1,1 @@
+include ':app', ':MaterialNavigationDrawerModule', ':MaterialTabsModule', ':calimero-2.0.4', ':calimero-tools-2.0.2'

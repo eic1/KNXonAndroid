@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/KNXonAndroid.iml" filepath="$PROJECT_DIR$/KNXonAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MaterialNavigationDrawerModule/MaterialNavigationDrawerModule.iml" filepath="$PROJECT_DIR$/MaterialNavigationDrawerModule/MaterialNavigationDrawerModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MaterialTabsModule/MaterialTabsModule.iml" filepath="$PROJECT_DIR$/MaterialTabsModule/MaterialTabsModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calimero-2.0.4/calimero-2.0.4.iml" filepath="$PROJECT_DIR$/calimero-2.0.4/calimero-2.0.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calimero-tools-2.0.2/calimero-tools-2.0.2.iml" filepath="$PROJECT_DIR$/calimero-tools-2.0.2/calimero-tools-2.0.2.iml" />
+    </modules>
+  </component>
+</project>
+

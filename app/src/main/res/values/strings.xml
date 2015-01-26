@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">KnxOnAndroid</string>
+    <string name="welcomeTest">KnxOnAndroid</string>
+
+    <string name="hello_world">Hallo Welt!</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="title_activity_group">Gruppen Aktivität</string>
+    <string name="welcome">Willkommen bei KnxOnAndroid</string>
+    <string name="createGroupHead">Erstelle DEINE eigene Gruppe</string>
+    <string name="groupName">Gruppenname</string>
+    <string name="alertDistance">Alarmdistanz</string>
+    <string name="distanceDeactivated">Deaktiviert</string>
+    <string name="joinGroupHead">Tritt einer existierenden Gruppe bei</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="drawer">Menü</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="profileText">Editiere dein Profil</string>
+    <string name="personal">Persönliche Informationen</string>
+    <string name="yourName">Dein Name:</string>
+    <string name="yourMail">Deine E-Mail</string>
+    <string name="yourPhone">Deine Handynummer</string>
+    <string name="photoButton">Bild aufnehmen</string>
+    <string name="profileHeadLine">Dein Profil</string>
+
+
+    <string-array name="menuarray">
+        <item>Gerät hinzufügen</item>
+        <item>Verbindung trennen</item>
+    </string-array>
+
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_group_overview">GroupOverviewActivity</string>
+    <string name="title_activity_lost_group">LostGroupActivity</string>
+    <string name="title_activity_look_for_user">LookForUser</string>
+
+</resources>

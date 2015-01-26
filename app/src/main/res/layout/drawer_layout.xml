@@ -1,0 +1,21 @@
+<LinearLayout
+    android:id="@+id/left_drawer_view"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="start"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Use any Views you like -->
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_gravity="start"
+        android:divider="?android:dividerHorizontal"
+        android:showDividers="middle"
+        android:choiceMode="singleChoice"
+        android:background="#ffffff"/>
+
+</LinearLayout>
