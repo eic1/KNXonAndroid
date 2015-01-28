@@ -40,14 +40,17 @@ public class DeviceActivity extends ActionBarActivity {
                     case 0:
                         Intent intent = new Intent(DeviceActivity.this, LampeActivity.class);
                         startActivity(intent);
+                        finish();
                         break;
                     case 1:
                         Intent intent2 = new Intent(DeviceActivity.this, WeatherActivity.class);
                         startActivity(intent2);
+                        finish();
                         break;
                     case 2:
                         Intent intent3 = new Intent(DeviceActivity.this, FloatActivity.class);
                         startActivity(intent3);
+                        finish();
                         break;
 
                 }

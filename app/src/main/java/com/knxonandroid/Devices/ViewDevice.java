@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.text.Layout;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ import tuwien.auto.calimero.GroupAddress;
 abstract public class ViewDevice{
     LinearLayout myLayout;
 
-
+   public boolean removed = false;
     KNXConnectionManager knxConnectionManager;
     ContextWrapper mainContext;
 
@@ -49,6 +50,10 @@ abstract public class ViewDevice{
         myLayout.addView(tv);
         layout.addView(myLayout);
 
+    }
+
+    public void addLongClick(View.OnClickListener l){
+       tv.setOnClickListener(l);
     }
 
     public void setName(String name){

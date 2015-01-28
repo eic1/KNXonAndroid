@@ -80,23 +80,55 @@ public class MainActivity extends ActionBarActivity implements Observer {
         int imgCount = 0;
         LinearLayout ll = new LinearLayout(this);
         for( ViewDevice d: data.getViewDevices()){
-            if(d instanceof Floatdisplay){
-                d.drawTo(this, layout);
+            if(!d.removed) {
+                if (d instanceof Floatdisplay) {
+                    d.drawTo(this, layout);
+                    final int d_id = data.getViewDevices().indexOf(d);
+                    d.addLongClick(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            System.out.println("Long Click");
+                            data.remove(d_id);
+                            drawAllDevices();
 
-            }else {
-                if (imgCount % 2 == 0) {
+                        }
+                    });
+
+                } else if (imgCount % 2 == 0) {
                     ll = new LinearLayout(this);
                     d.drawTo(this, ll);
+                    final int d_id = data.getViewDevices().indexOf(d);
+                    d.addLongClick(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            System.out.println("Long Click");
+                            data.remove(d_id);
+                            drawAllDevices();
+
+                        }
+                    });
                     layout.addView(ll);
                     imgCount++;
-                }else{
+                } else {
                     d.drawTo(this, ll);
-                    ((Lamp)d).update(true);
+                    //if(d instanceof )
+                    //d.update(true);
+                    final int d_id = data.getViewDevices().indexOf(d);
+                    d.addLongClick(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            System.out.println("Long Click");
+                            data.remove(d_id);
+                            drawAllDevices();
+                        }
+                    });
+
                     imgCount++;
                 }
             }
         }
     }
+
 
 
     @Override
@@ -121,8 +153,8 @@ public class MainActivity extends ActionBarActivity implements Observer {
 
 
         fillWithDummy();
-
         //loadData();
+
         drawAllDevices();
 
 
@@ -180,6 +212,8 @@ public class MainActivity extends ActionBarActivity implements Observer {
         super.onResume();
 
 
+        drawAllDevices();
+
        System.out.println("OnResume");
         if (!knxConnectionManager.connected){
            System.out.println("To the Connect.");
@@ -212,7 +246,7 @@ public class MainActivity extends ActionBarActivity implements Observer {
         }
     }
     private void loadData(){
-        data = new DeviceData();
+        data = DeviceData.getInstance();
         String ret = "";
         InputStream inputStream = null;
         try {
@@ -240,7 +274,8 @@ public class MainActivity extends ActionBarActivity implements Observer {
     }
 
     private void fillWithDummy(){
-        data = new DeviceData();
+
+        data = DeviceData.getInstance();
         Lamp TestLamp = new Lamp();
         TestLamp.setSendGroupAdress(new GroupAddress(1, 5, 10));
         TestLamp.setRcvGroupAdress(new GroupAddress(3, 5, 0), 1000);
