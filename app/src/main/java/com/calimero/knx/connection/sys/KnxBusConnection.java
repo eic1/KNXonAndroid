@@ -18,6 +18,9 @@ import tuwien.auto.calimero.link.medium.TPSettings;
 import tuwien.auto.calimero.process.ProcessCommunicator;
 import tuwien.auto.calimero.process.ProcessCommunicatorImpl;
 
+/**
+ * Klasse, die für die Kommunikation mit dem KnxBus verwendet wird.
+ */
 class KnxBusConnection extends Observable implements Runnable {
 
     private final Container busActionContainer, resultContainer, errorContainer;
@@ -28,6 +31,17 @@ class KnxBusConnection extends Observable implements Runnable {
     private boolean connected;
     private boolean terminated = false;
 
+    /**
+     * Konstruktor der Klasse. Es werden die Angaben übergeben, die für den Aufbau einer Verbindung zu einem Knx-Bus benötigt werden.
+     *
+     * @param hostIp             String IP des Geräts.
+     * @param gatewayIp          String IP des Knx-IP-Interfaces.
+     * @param gatewayPort        int Port auf dem das IP-Interface Verbindungen zulässt.
+     * @param busActionContainer Container Ein Container, der Lese- und Schreibaufträge enthält.
+     * @param resultContainer    Container Ein Container, der die Ergebnisse von Leseaufträgen am Bus enthält.
+     * @param errorContainer     Container Ein Container, der die fehlgeschlagenen Aufträge enthält.
+     * @throws UnknownHostException
+     */
     public KnxBusConnection(String hostIp, String gatewayIp, int gatewayPort, Container busActionContainer, Container resultContainer, Container errorContainer) throws UnknownHostException {
         try {
             this.hostSocket = new InetSocketAddress(InetAddress.getByName(hostIp), 0);
@@ -115,6 +129,11 @@ class KnxBusConnection extends Observable implements Runnable {
         closeBus();
     }
 
+    /**
+     * Methode zum initialisieren der Bus-Verbindung. Es wird versucht eine Verbindung zu einem Knx-Bus aufzubauen.
+     *
+     * @return boolean true wenn eine Verbindung aufgebaut werden konnte, ansonsten false.
+     */
     private synchronized boolean initBus() {
         boolean result = false;
         try {
@@ -129,6 +148,9 @@ class KnxBusConnection extends Observable implements Runnable {
         return result;
     }
 
+    /**
+     * Beenden der Verbindung zum Bus. Bestehende Verbindungen werden ggf. getrennt und Ressourcen freigegeben.
+     */
     private void closeBus() {
         if (netLinkIp != null) {
             netLinkIp.close();
@@ -137,10 +159,20 @@ class KnxBusConnection extends Observable implements Runnable {
         setConnected(false);
     }
 
+    /**
+     * Abfrage, ob sich der Thread terminiert hat. Bei einer zu hohen Zahl von Fehlern beendet sich der Thread selbst.
+     *
+     * @return boolean true falls der Thread sich terminiert hat, ansonsten false.
+     */
     public synchronized boolean terminated() {
         return terminated;
     }
 
+    /**
+     * Überprüfung ob eine Verbindung zum Knx-Bus besteht.
+     *
+     * @return boolean true falls eine Verbindung besteht, ansonsten false.
+     */
     private boolean isConnected() {
         boolean returnVal = false;
         if (netLinkIp != null) {
@@ -150,6 +182,11 @@ class KnxBusConnection extends Observable implements Runnable {
         return returnVal;
     }
 
+    /**
+     * Methode zum setzen des connected Flags. Wird benötigt, um bei eventuellen Wechseln des Status eine Benachrichtigung via Observer-Pattern auszuführen.
+     *
+     * @param connected boolean Status der Verbindung. true wenn Verbindung besteht ansonsten false.
+     */
     private void setConnected(boolean connected) {
         if (connected != this.connected) {
             this.setChanged();
